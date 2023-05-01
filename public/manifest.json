@@ -1,6 +1,6 @@
 {
-  "name": "Demo-App",
-  "short_name": "Demo-App",
+  "name": "js-meetup",
+  "short_name": "js-meetup",
   "theme_color": "#317EFB",
   "background_color": "#004740",
   "display": "fullscreen",

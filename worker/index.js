@@ -1,6 +1,5 @@
 "use strict";
 
-// STEP [2] - We wait to push event to be fired and show the data in the notification.
 self.addEventListener("push", function (event) {
   const data = JSON.parse(event.data.text());
   event.waitUntil(
@@ -11,7 +10,6 @@ self.addEventListener("push", function (event) {
   );
 });
 
-// STEP [3] - We handle notificationclick event to be fired and open our web app.
 // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();
@@ -21,6 +19,8 @@ self.addEventListener("notificationclick", function (event) {
       .then(function (clientList) {
         if (clientList.length > 0) {
           let client = clientList[0];
+          // we search for the last focused one
+          // (last one being used, in case there are multiple tabs opened)
           for (let i = 0; i < clientList.length; i++) {
             if (clientList[i].focused) {
               client = clientList[i];

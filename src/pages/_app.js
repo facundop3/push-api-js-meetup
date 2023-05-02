@@ -8,7 +8,6 @@ export default function App({ Component, pageProps }) {
       <Head>
         <SplashScreen />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#317EFB" />
       </Head>
       <Component {...pageProps} />
     </ChakraProvider>

@@ -1,8 +1,8 @@
 {
   "name": "js-meetup",
   "short_name": "js-meetup",
-  "theme_color": "#317EFB",
-  "background_color": "#004740",
+  "theme_color": "#F7FAFC",
+  "background_color": "#F7FAFC",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",

@@ -3,15 +3,16 @@
 var __webpack_exports__ = {};
 
 
+// STEP [2] - We wait to push event to be fired and show the data in the notification.
 self.addEventListener("push", function (event) {
   const data = JSON.parse(event.data.text());
   event.waitUntil(registration.showNotification(data.title, {
     body: data.message,
-    icon: "/icons/android-chrome-192x192.png"
+    icon: "/icons/icon-192x192.png"
   }));
 });
 
-// STEP [] - The user opens the notification
+// STEP [3] - We handle notificationclick event to be fired and open our web app.
 // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();
@@ -26,22 +27,10 @@ self.addEventListener("notificationclick", function (event) {
           client = clientList[i];
         }
       }
-      console.log("client: ", client);
-      client.postMessage({
-        action: "navigate",
-        url: "/hello"
-      });
       return client.focus();
-      //   return client.focus();
     }
-
-    return clients.openWindow("/hello");
+    return clients.openWindow("/");
   }));
-});
-navigator.serviceWorker.addEventListener("message", event => {
-  if (event.data && event.data.action === "navigate") {
-    window.location.href = event.data.url;
-  }
 });
 /******/ })()
 ;

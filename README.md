@@ -2,6 +2,49 @@
 
 This is just an example implementation for web push notifications using the Web Push API.
 
+## How to run it?
+
+With yarn:
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+Generate your Vapid keys:
+
+```bash
+yarn "generate:vapid:keys"
+```
+
+
+Run the dev server:
+
+```bash
+yarn dev
+```
+
+
+With npm:
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Generate your Vapids:
+
+```bash
+npm run generate:vapid:keys
+```
+
+Run the dev server:
+
+```bash
+npm run dev
+```
 
 ```mermaid
 graph TD;

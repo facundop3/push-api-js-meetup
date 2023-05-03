@@ -10,9 +10,10 @@ export default function Home() {
 
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [subscription, setSubscription] = useState(null);
+  const hasWindow = typeof window !== "undefined";
   useEffect(() => {
     if (
-      typeof window !== "undefined" &&
+      hasWindow &&
       "serviceWorker" in navigator &&
       window.workbox !== undefined
     ) {
@@ -30,7 +31,7 @@ export default function Home() {
         setRegistration(reg);
       });
     }
-  }, []);
+  }, [hasWindow]);
 
   const requestNotificationPermission = async () => {
     if ("Notification" in window) {
@@ -53,7 +54,7 @@ export default function Home() {
   const subscribeButtonOnClick = async (event) => {
     event.preventDefault();
     await requestNotificationPermission();
-    const sub = await registration.pushManager.subscribe({
+    const sub = await registration.pushManager?.subscribe({
       userVisibleOnly: true,
       applicationServerKey: base64ToUint8Array(
         process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY
